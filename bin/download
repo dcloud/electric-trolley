@@ -1,0 +1,27 @@
+#!/usr/bin/env node
+'use strict';
+
+const http = require('http');
+const fs = require('fs');
+
+const transitFeedURL = "http://bloomington.in.gov/transit/gtfeed/GoogleTransitFeed.zip";
+let fileName = transitFeedURL.split("/").pop();
+let dirPath = process.argv[2] || "./";
+
+fs.stat(dirPath, function (err, stats) {
+    if (err) throw err;
+    if (!stats.isDirectory()) {
+        console.error(`Can't save to "${dirPath}". It is not a valid directory.`);
+        return;
+    }
+    let filePath = dirPath + "/" + fileName;
+    http.get(transitFeedURL, function (response) {
+        console.log("Got response: " + response.statusCode);
+        let outFile = fs.createWriteStream(filePath);
+        response.pipe(outFile);
+    }).on('error', function (error) {
+        console.error("Got error: " + e.message);
+    }).on('end', function () {
+        console.log("Download completed.");
+    });
+});

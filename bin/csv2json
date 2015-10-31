@@ -1,0 +1,45 @@
+#!/usr/bin/env node
+'use strict';
+
+const fs = require('fs');
+const path = require('path');
+const Converter = require('csvtojson').Converter;
+
+let inpath = process.argv[2] || './';
+let outpath = process.argv[3] || inpath;
+let fileExt = '.txt';
+
+
+fs.stat(inpath, function (err, stats) {
+    if (err) throw err;
+    fs.stat(outpath, function (err, stats) {
+        if (err) throw err;
+        fs.readdir(inpath, function (err, files) {
+            if (err) throw err;
+            let txtFiles = files.filter(f => f.endsWith(fileExt));
+            for (let f of txtFiles) {
+                let fbase = path.basename(f, fileExt)
+                let ipath = path.join(inpath, f);
+                let opath = path.join(outpath, fbase + '.json')
+                fs.access(ipath, function (err) {
+                    if (err) throw err;
+                    if (!err) {
+                        console.log(`Converting '${ipath}' to '${opath}'`);
+                        let converter = new Converter({toArrayString: true});
+                        let input = fs.createReadStream(ipath);
+                        let output = fs.createWriteStream(opath);
+                        input.pipe(converter).pipe(output);
+                    }
+                })
+            }
+        });
+    });
+});
+
+// var output = [];
+//
+// parse(`agency_name,agency_url,agency_timezone\n
+// Bloomington Transit,http://bloomingtontransit.com,America/New_York
+// `, {columns: true, skip_empty_lines: true, auto_parse: true}, function (err, output) {
+//     console.log(output);
+// });
