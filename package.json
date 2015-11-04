@@ -3,13 +3,16 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "tsc": "tsc -w",
+    "start": "live-server --port=8000"
   },
   "dependencies": {
-    "angular2": "2.0.0-alpha.45"
+    "angular2": "2.0.0-alpha.45",
+    "systemjs": "^0.19.5"
   },
   "devDependencies": {
     "csvtojson": "^0.4.5",
-    "live-server": "^0.8.2"
+    "live-server": "^0.8.2",
+    "typescript": "^1.6.2"
   }
 }

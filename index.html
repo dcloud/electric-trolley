@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Electric Trolley</title>
+        <script src="../node_modules/systemjs/dist/system.src.js" charset="utf-8"></script>
+        <script src="../node_modules/angular2/bundles/angular2.dev.js" charset="utf-8"></script>
+        <script src="../node_modules/angular2/bundles/http.dev.js" charset="utf-8"></script>
+        <script>
+            System.config({
+                packages: {'dist': {defaultExtension: 'js'}}
+            });
+            System.import('dist/app');
+        </script>
+
+    </head>
+    <body>
+        <application></application>
+    </body>
+</html>
