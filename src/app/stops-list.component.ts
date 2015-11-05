@@ -8,7 +8,7 @@ import {StopsService} from './stops.service';
     template: `
 <ul>
     <li *ng-for="#stop of stops">
-        {{ stop.name }}
+        <span>{{ stop.name }}</span>
     </li>
 </ul>
 `,
@@ -17,9 +17,9 @@ import {StopsService} from './stops.service';
 export class StopsListComponent {
     public stops: Stop[];
 
-    constructor(stopsService: StopsService) {
-        stopsService.fetchStops().then(() => {
-            this.stops = stopsService.stops;
+    constructor(service: StopsService) {
+        service.fetchItems().then(() => {
+            this.stops = service.items;
         });
     }
 }
