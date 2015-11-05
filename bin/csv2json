@@ -25,7 +25,7 @@ fs.stat(inpath, function (err, stats) {
                     if (err) throw err;
                     if (!err) {
                         console.log(`Converting '${ipath}' to '${opath}'`);
-                        let converter = new Converter({toArrayString: true});
+                        let converter = new Converter({toArrayString: true, checkType: false, workerNum:2});
                         let input = fs.createReadStream(ipath);
                         let output = fs.createWriteStream(opath);
                         input.pipe(converter).pipe(output);
