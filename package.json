@@ -2,17 +2,24 @@
   "name": "electric-trolley",
   "version": "0.0.0",
   "private": true,
+  "engines": {
+    "node": "4.2.1"
+  },
   "scripts": {
     "tsc": "tsc -w",
-    "start": "live-server --port=8000"
+    "start": "nf start",
+    "serve": "live-server --port=8000",
+    "postinstall": "tsc --removeComments"
   },
   "dependencies": {
     "angular2": "2.0.0-alpha.45",
+    "express": "^4.13.3",
+    "foreman": "^1.4.1",
+    "request": "^2.65.0",
     "systemjs": "^0.19.5"
   },
   "devDependencies": {
     "csvtojson": "^0.4.5",
-    "live-server": "^0.8.2",
     "typescript": "^1.6.2"
   }
 }
