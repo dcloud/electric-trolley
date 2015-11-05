@@ -1,17 +1,18 @@
 import {Component, bootstrap, CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/angular2';
-import {StopsListComponent} from './stops-list.component';
+// import {StopsListComponent} from './stops-list.component';
+import {RoutesListComponent} from './routes-list.component';
 import {HTTP_PROVIDERS} from 'angular2/http';
 
 @Component({
     selector: 'application',
     template: `
     <h1>{{title}}</h1>
-    <stops-list-component></stops-list-component>
+    <routes-list-component></routes-list-component>
 `,
-    directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, StopsListComponent]
+    directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, RoutesListComponent]
 })
 class AppComponent {
-    public title = 'Electric Trolley Hi';
+    public title = 'Electric Trolley says Hello';
 }
 
 bootstrap(AppComponent, [HTTP_PROVIDERS]);
