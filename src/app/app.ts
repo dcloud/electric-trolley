@@ -15,4 +15,4 @@ class AppComponent {
     public title = 'Electric Trolley says Hello';
 }
 
-bootstrap(AppComponent, [HTTP_PROVIDERS]);
+bootstrap(AppComponent, [HTTP_PROVIDERS]).catch(err => console.error(err));
