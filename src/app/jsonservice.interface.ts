@@ -1,5 +1,5 @@
 export interface JSONServiceInterface<T> {
-    items: T[]
+    items: T[];
 
     fetchItems(): Promise<T[]>;
 }
