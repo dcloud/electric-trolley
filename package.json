@@ -8,7 +8,6 @@
   "scripts": {
     "tsc": "tsc -w",
     "start": "nf start",
-    "serve": "live-server --port=8000",
     "postinstall": "tsc --removeComments"
   },
   "dependencies": {
