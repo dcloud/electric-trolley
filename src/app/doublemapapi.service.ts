@@ -55,7 +55,7 @@ export class DoubleMapApiService implements DoubleMapApiInterface {
             let items: Array<Stop> = [];
             for(let obj of json) {
                 let item = new Stop(obj.id || null, obj.name, obj.description);
-                item.point = {lat: obj.lat, lon: obj.lon};
+                item.point = new Point(obj.lat, obj.lon);
                 items.push(item);
             }
             return items;
