@@ -7,6 +7,7 @@
   },
   "scripts": {
     "tsc": "tsc -w",
+    "dev": "node dev.js",
     "start": "nf start",
     "postinstall": "tsc --removeComments"
   },
@@ -18,6 +19,7 @@
     "systemjs": "^0.19.5"
   },
   "devDependencies": {
+    "browser-sync": "^2.9.12",
     "csvtojson": "^0.4.5",
     "typescript": "^1.6.2"
   }
