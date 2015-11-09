@@ -1,5 +1,7 @@
+import {AsyncResultList} from './async.interface';
+
 export interface JSONServiceInterface<T> {
     items: T[];
 
-    fetchItems(): Promise<T[]>;
+    fetchItems: AsyncResultList<T>;
 }
