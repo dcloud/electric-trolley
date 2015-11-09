@@ -1,6 +1,6 @@
 import {Component, CORE_DIRECTIVES} from 'angular2/angular2';
-import {Stop} from './stop';
-import {StopsService} from './stops.service';
+import {Stop} from '../models/stop';
+import {StopsService} from '../services/stops.service';
 
 @Component({
     selector: 'stops-list-component',

@@ -1,8 +1,8 @@
 import {Injectable} from 'angular2/angular2';
 import {Http} from 'angular2/http';
 import {JSONServiceInterface} from './jsonservice.interface';
-import {Stop} from './stop';
-import {Point} from './point';
+import {Stop} from '../models/stop';
+import {Point} from '../models/point';
 
 @Injectable()
 export class StopsService implements JSONServiceInterface<Stop> {

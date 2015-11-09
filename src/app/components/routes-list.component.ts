@@ -1,6 +1,6 @@
 import {Component, CORE_DIRECTIVES} from 'angular2/angular2';
-import {Route, RouteType} from './route';
-import {DoubleMapApiService} from './doublemapapi.service';
+import {Route, RouteType} from '../models/route';
+import {DoubleMapApiService} from '../services/doublemapapi.service';
 
 @Component({
     selector: 'routes-list-component',

@@ -1,6 +1,6 @@
 import {Component, bootstrap, CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/angular2';
-// import {StopsListComponent} from './stops-list.component';
-import {RoutesListComponent} from './routes-list.component';
+// import {StopsListComponent} from './components/stops-list.component';
+import {RoutesListComponent} from './components/routes-list.component';
 import {HTTP_PROVIDERS} from 'angular2/http';
 
 @Component({

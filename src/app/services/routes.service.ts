@@ -1,7 +1,7 @@
 import {Injectable} from 'angular2/angular2';
 import {Http} from 'angular2/http';
 import {JSONServiceInterface} from './jsonservice.interface';
-import {Route} from './route';
+import {Route} from '../models/route';
 
 @Injectable()
 export class RoutesService implements JSONServiceInterface<Route> {

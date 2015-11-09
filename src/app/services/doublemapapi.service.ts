@@ -1,10 +1,10 @@
 import {Injectable} from 'angular2/angular2';
 import {Http} from 'angular2/http';
 import {DoubleMapApiInterface} from './doublemapapi.interface';
-import {Bus} from './bus';
-import {Route} from './route';
-import {Stop} from './stop';
-import {Point} from './point';
+import {Bus} from '../models/bus';
+import {Route} from '../models/route';
+import {Stop} from '../models/stop';
+import {Point} from '../models/point';
 
 interface JSONTransformer {
   (json: any): any[];
