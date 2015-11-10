@@ -8,6 +8,7 @@
   "scripts": {
     "tsc": "tsc -w",
     "dev": "node dev.js",
+    "test": "browser-sync start --files 'unit-tests.html, dist/app*.js' --server --directory --no-open",
     "start": "nf start",
     "postinstall": "tsc --removeComments"
   },
@@ -16,11 +17,13 @@
     "express": "^4.13.3",
     "foreman": "^1.4.1",
     "request": "^2.65.0",
-    "systemjs": "^0.19.5"
+    "systemjs": "^0.19.5",
+    "turf": "^2.0.2"
   },
   "devDependencies": {
     "browser-sync": "^2.9.12",
     "csvtojson": "^0.4.5",
+    "jasmine-core": "^2.3.4",
     "typescript": "^1.6.2"
   }
 }
