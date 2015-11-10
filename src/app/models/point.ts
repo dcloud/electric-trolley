@@ -1,19 +1,25 @@
-import {Position} from './position.interface';
+/// <reference path="../lib/geojson.d.ts" />
 
-export class Point {
-    lat: number;
-    lon: number;
+export class Point implements GeoJSON.Point {
+    type: string = "point";
 
     constructor(lat: number, lon: number) {
-        this.lat = lat;
-        this.lon = lon;
+        this.coordinates = [lon, lat];
+    }
+
+    get lat(): number {
+        return this.coordinates[1];
+    }
+
+    get lon(): number {
+        return this.coordinates[0];
     }
 
     toString() {
         return `{ lat: ${this.lat}, lon: ${this.lon}}`;
     }
 
-    get coordinates(): Position {
+    get coordinates(): GeoJSON.Position {
         return [this.lon, this.lat];
     }
 }
