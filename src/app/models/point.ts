@@ -2,7 +2,11 @@
 
 export class Point implements GeoJSON.Point {
     type: string = "point";
-    _coordinates: GeoJSON.Position = [];
+    _coordinates: GeoJSON.Position;
+
+    static fromPosition(p: GeoJSON.Position) {
+        return new Point(p[1], p[0]);
+    }
 
     constructor(lat: number, lon: number) {
         this._coordinates = [lon, lat];
