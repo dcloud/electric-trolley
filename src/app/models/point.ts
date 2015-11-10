@@ -2,17 +2,18 @@
 
 export class Point implements GeoJSON.Point {
     type: string = "point";
+    _coordinates: GeoJSON.Position = [];
 
     constructor(lat: number, lon: number) {
-        this.coordinates = [lon, lat];
+        this._coordinates = [lon, lat];
     }
 
     get lat(): number {
-        return this.coordinates[1];
+        return this._coordinates[1];
     }
 
     get lon(): number {
-        return this.coordinates[0];
+        return this._coordinates[0];
     }
 
     toString() {
@@ -20,6 +21,6 @@ export class Point implements GeoJSON.Point {
     }
 
     get coordinates(): GeoJSON.Position {
-        return [this.lon, this.lat];
+        return this._coordinates;
     }
 }

@@ -16,10 +16,10 @@
           }
         });
         // #3. Import the spec file explicitly
-        // Promise.all([
-        //     System.import('dist/app/models/point.spec')
-        // ])
-        System.import('dist/app/models/point.spec')
+        Promise.all([
+            System.import('dist/app/models/point.spec'),
+            System.import('dist/app/models/route.spec')
+        ])
           // #4. wait for all imports to load ...
 
           //     then re-execute `window.onload` which
