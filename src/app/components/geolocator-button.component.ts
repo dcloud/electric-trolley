@@ -8,11 +8,14 @@ import {Component, EventEmitter, Output, CORE_DIRECTIVES} from 'angular2/angular
 })
 export class GeolocatorButtonComponent {
     @Output() geolocated: EventEmitter = new EventEmitter();
+    @Output() locatefailed: EventEmitter = new EventEmitter();
 
     onClick() {
         let self = this;
-        navigator.geolocation.getCurrentPosition(function(position) {
+        navigator.geolocation.getCurrentPosition((position) => {
             self.geolocated.next({ value: position});
+        }, (error) => {
+            self.locatefailed.next({ value: error });
         });
     }
 }
