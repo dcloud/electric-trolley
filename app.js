@@ -6,10 +6,13 @@ let config = require('./config');
 let app = express();
 let doublemap = require('./routes/doublemap');
 
+const browser_modules = ['systemjs', 'angular2', 'turf'];
+
 // Static files
 app.use('/dist', express.static(__dirname + '/dist'));
-app.use('/lib/systemjs', express.static(__dirname + '/node_modules/systemjs'));
-app.use('/lib/angular2', express.static(__dirname + '/node_modules/angular2'));
+for (let mod of browser_modules) {
+    app.use(`/lib/${mod}`, express.static(__dirname + `/node_modules/${mod}`));
+}
 app.use('/data', express.static(__dirname + '/data'));
 
 // doublemap
