@@ -1,4 +1,4 @@
-import {Point} from './point';
+import {Point} from "./geo";
 
 const btownLon = 39.162222;
 const btownLat = -86.529167;

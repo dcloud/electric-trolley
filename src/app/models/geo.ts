@@ -1,5 +1,12 @@
 /// <reference path="../lib/geojson.d.ts" />
 
+export class LineString implements GeoJSON.LineString {
+    type: string = "LineString";
+    coordinates: GeoJSON.Position[] = [];
+
+    constructor() { }
+}
+
 export class Point implements GeoJSON.Point {
     type: string = "point";
     _coordinates: GeoJSON.Position;

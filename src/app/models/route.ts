@@ -1,5 +1,6 @@
 /// <reference path="../lib/geojson.d.ts" />
-import {Point} from './point';
+import {Point, LineString} from "./geo";
+
 
 export enum RouteType { LightRail, Subway, Rail, Bus, Ferry, CableCar, Gondola, Funicular };
 
@@ -12,7 +13,7 @@ export class Route {
     color: string;
     textColor: string;
     url: string;
-    private _path: GeoJSON.Position[] = [];
+    private _lineString: LineString = new LineString();
 
     constructor(id: number, shortName?: string, description?: string, type?: RouteType,
                 longName?: string, color?: string, textColor?: string, url?: string, pointsArr?: Array<number>) {
@@ -33,22 +34,28 @@ export class Route {
     }
 
     get path(): GeoJSON.Position[] {
-        return this._path;
+        return this._lineString.coordinates;
     }
 
     set path(newPath: GeoJSON.Position[]) {
-        this._path = newPath;
+        if (this._lineString === undefined) {
+            this._lineString = new LineString();
+        }
+        this._lineString.coordinates = newPath;
+    }
+
+    get lineString(): LineString {
+        return this._lineString;
     }
 
     /**
     * Creates a GeoJSON.Position array from a flat array of lat/lon values.
     */
     pathFromArray(pointArray: number[]) {
-        if (pointArray && pointArray.length % 2 == 0) {
-            this._path = [];
+        if (pointArray && pointArray.length % 2 === 0) {
+            this._lineString = new LineString();
             for (let i = 0; i < pointArray.length - 1; i += 2) {
-                let p: GeoJSON.Position = [pointArray[i+1], pointArray[i]];
-                this._path.push(p);
+                this._lineString.coordinates.push([pointArray[i+1], pointArray[i]]);
             }
 
         }
